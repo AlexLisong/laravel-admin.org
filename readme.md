@@ -30,6 +30,9 @@ Back to terminal and start the web server:
 
 ```shell
 
+删除composer.lock，重新composer install即可解决
+
+
 $ php artisan serve
 
 ```
