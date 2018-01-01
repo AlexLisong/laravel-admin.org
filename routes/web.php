@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('cc/theme', 'Cc\ThemeController@index');
+Route::get('cc/activitie', 'Cc\ActivitieController@index');

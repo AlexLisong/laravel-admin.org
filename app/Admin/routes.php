@@ -36,6 +36,12 @@ Route::group([
         'china/province'        => China\ProvinceController::class,
         'china/city'            => China\CityController::class,
         'china/district'        => China\DistrictController::class,
+        
+        'cc/theme'              => Cc\ThemeController::class,
+        'cc/activitie'          => Cc\ActivitieController::class,
+        'cc/chapter'            => Cc\ChapterController::class,
+        'cc/article'            => Cc\ArticleController::class,
+        'cc/material'           => Cc\MaterialController::class,
     ]);
 
     $router->post('posts/release', 'PostController@release');
@@ -58,4 +64,6 @@ Route::group([
     $router->get('widgets/tab', 'WidgetsController@tab');
     $router->get('widgets/notice', 'WidgetsController@notice');
     $router->get('widgets/editors', 'WidgetsController@editors');
+
+    $router->get('api/cc/themes', 'Cc\ApiController@themes');
 });
