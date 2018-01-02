@@ -13,9 +13,9 @@ class Material extends Model
         return $this->belongsTo(theme::class,'cc_theme_id');
     }
 
-    public function activite()
+    public function activity()
     {
-        return $this->belongsTo(activitie::class,'cc_activity_id');
+        return $this->belongsTo(activity::class,'cc_activity_id');
     }
 
 }

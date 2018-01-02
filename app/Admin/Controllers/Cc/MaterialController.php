@@ -5,7 +5,7 @@ namespace App\Admin\Controllers\Cc;
 use App\Models\Cc\Material;
 
 use App\Models\Cc\Theme;
-use App\Models\Cc\Activitie;
+use App\Models\Cc\Activity;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
@@ -77,8 +77,8 @@ class MaterialController extends Controller
             $grid->title();
             $grid->icon();
             $grid->description();
-            $grid->theme()->title();
-            $grid->activite()->title();
+            $grid->theme()->title('theme');
+            $grid->activity()->title('title');
 
             $grid->filter(function ($filter) {
                 $filter->like('title');
@@ -100,9 +100,10 @@ class MaterialController extends Controller
             
             $form->text('title')->rules('required');
             $form->icon('icon');
-            $form->text('description')->rules('required');
-            $form->select('cc_theme_id.')->options(Theme::all()->pluck('title', 'id'));
-            $form->select('cc_activity_id')->options(Activitie::all()->pluck('title', 'id'));
+            $form->image('icon_file');
+            $form->editor('description')->rules('required');
+            $form->select('cc_theme_id')->options(Theme::all()->pluck('title', 'id'));
+            $form->select('cc_activity_id')->options(Activity::all()->pluck('title', 'id'));
         });
     }
 }

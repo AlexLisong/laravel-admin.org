@@ -95,9 +95,10 @@ class ArticleController extends Controller
             $form->display('id', 'ID');
             
             $form->text('title')->rules('required');
-            $form->text('article_content')->rules('required');
+            $form->image('icon_file');
+            $form->editor('article_content')->rules('required');
             $form->text('url')->rules('required');
-
+   
         });
     }
 }

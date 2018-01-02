@@ -8,9 +8,9 @@ class Chapter extends Model
 {
     protected $table = 'cc_chapters';
 
-    public function activitie()
+    public function activity()
     {
-        return $this->belongsTo(activitie::class,'cc_activity_id');
+        return $this->belongsTo(activity::class,'cc_activity_id');
     }
 
 }

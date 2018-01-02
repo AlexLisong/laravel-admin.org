@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 <body>
-1231231321
+@foreach($chapters as $key=>$val)
+{{$val->id}} - {{$val->video}} - {{$val->content}} - {{$val->iframe_url}}<br />
+@endforeach
 </body>
-</html>        
+</html>

@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers\Cc;
 
-use App\Models\Cc\Activitie;
+use App\Models\Cc\Activity;
 use App\Models\Cc\Theme;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -11,7 +11,7 @@ use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
 
-class ActivitieController extends Controller
+class ActivityController extends Controller
 {
     use ModelForm;
 
@@ -24,7 +24,7 @@ class ActivitieController extends Controller
     {
         return Admin::content(function (Content $content) {
             
-            $content->header('Activitie');
+            $content->header('Activity');
             $content->description('description');
             $content->body($this->grid());
         });
@@ -40,7 +40,7 @@ class ActivitieController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('Activitie');
+            $content->header('Activity');
             $content->description('description');
 
             $content->body($this->form()->edit($id));
@@ -56,7 +56,7 @@ class ActivitieController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('Activitie');
+            $content->header('Activity');
             $content->description('description');
 
             $content->body($this->form());
@@ -70,7 +70,7 @@ class ActivitieController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(Activitie::class, function (Grid $grid) {
+        return Admin::grid(Activity::class, function (Grid $grid) {
             $grid->id('id')->sortable();
             $grid->title();
             $grid->sortorder();
@@ -96,18 +96,19 @@ class ActivitieController extends Controller
      */
     protected function form()
     {
-        return Admin::form(Activitie::class, function (Form $form) {
+        return Admin::form(Activity::class, function (Form $form) {
             
             $form->display('id','ID');
-            
-            $form->text('title')->rules('required');
+            $form->text('title');
+            $form->icon('icon');
+            $form->image('icon_file');
             $form->text('sortorder')->rules('required');
             $form->select('cc_theme_id')->options(Theme::all()->pluck('title', 'id'));
             $form->text('description')->rules('required');
             $form->text('example')->rules('required');
             $form->text('solution_sheet')->rules('required');
             $form->text('showcase')->rules('required');
-            $form->text('lesson_plan')->rules('required');
+            $form->editor('lesson_plan')->rules('required');
         });
     }
 }

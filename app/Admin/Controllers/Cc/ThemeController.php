@@ -23,7 +23,7 @@ class ThemeController extends Controller
     public function index()
     {
         return Admin::content(function (Content $content) {
-            
+
             $content->header('Theme');
             $content->description('description');
             $content->body($this->grid());
@@ -95,14 +95,19 @@ class ThemeController extends Controller
     {
         return Admin::form(Theme::class, function (Form $form) {
             $form->display('id', 'ID');
-            
-            $form->text('title')->rules('required');
-            $form->text('description')->rules('required');
+            $form->text('title');
+            $form->image('icon_file');
+            $form->textarea('description')->rules('required');
             $form->text('level')->rules('required');
-            $form->icon('icon');
+            $form->text('icon');
             $form->text('sortorder');
             
-
+            // 修改图片上传路径和文件名
+            // $form->image('icon_file')->move($dir, $name);
+            // 剪裁图片
+            // $form->image('icon_file')->crop(int $width, int $height, [int $x, int $y]);
+            // 加水印
+            // $form->image('icon_file')->insert($watermark, 'center');
         });
     }
 }

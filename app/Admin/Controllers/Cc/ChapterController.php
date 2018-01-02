@@ -3,7 +3,7 @@
 namespace App\Admin\Controllers\Cc;
 
 use App\Models\Cc\Chapter;
-use App\Models\Cc\Activitie;
+use App\Models\Cc\Activity;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
@@ -74,7 +74,7 @@ class ChapterController extends Controller
             $grid->id('id')->sortable();
             $grid->title();
             $grid->sortorder();
-            $grid->Activitie()->title('Activitie');
+            $grid->Activity()->title('Activity');
             $grid->video();
             $grid->content();
             $grid->type();
@@ -98,12 +98,13 @@ class ChapterController extends Controller
         return Admin::form(Chapter::class, function (Form $form) {
             
             $form->display('id','ID');
-            
-            $form->text('title')->rules('required');
+            $form->textbox('title');
+            $form->icon('icon');
+            $form->image('icon_file');
             $form->text('sortorder')->rules('required');
-            $form->select('cc_activity_id')->options(Activitie::all()->pluck('title', 'id'));
-            $form->text('video')->rules('required');
-            $form->text('content')->rules('required');
+            $form->select('cc_activity_id')->options(Activity::all()->pluck('title', 'id'));
+            $form->textbox('video');
+            $form->textarea('content')->rules('required');
             $form->text('type')->rules('required');
             $form->text('iframe_url')->rules('required');
         });

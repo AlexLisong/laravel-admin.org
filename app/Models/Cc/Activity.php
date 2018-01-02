@@ -4,7 +4,7 @@ namespace App\Models\Cc;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Activitie extends Model
+class Activity extends Model
 {
     protected $table = 'cc_activities';
 

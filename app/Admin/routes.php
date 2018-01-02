@@ -38,7 +38,7 @@ Route::group([
         'china/district'        => China\DistrictController::class,
         
         'cc/theme'              => Cc\ThemeController::class,
-        'cc/activitie'          => Cc\ActivitieController::class,
+        'cc/activity'           => Cc\ActivityController::class,
         'cc/chapter'            => Cc\ChapterController::class,
         'cc/article'            => Cc\ArticleController::class,
         'cc/material'           => Cc\MaterialController::class,
