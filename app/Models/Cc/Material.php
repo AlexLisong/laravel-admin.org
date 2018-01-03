@@ -10,12 +10,12 @@ class Material extends Model
 
     public function theme()
     {
-        return $this->belongsTo(theme::class,'cc_theme_id');
+        return $this->belongsTo(Theme::class,'cc_theme_id');
     }
 
     public function activity()
     {
-        return $this->belongsTo(activity::class,'cc_activity_id');
+        return $this->belongsTo(Activity::class,'cc_activity_id');
     }
 
 }

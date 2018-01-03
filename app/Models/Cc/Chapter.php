@@ -10,7 +10,7 @@ class Chapter extends Model
 
     public function activity()
     {
-        return $this->belongsTo(activity::class,'cc_activity_id');
+        return $this->belongsTo(Activity::class,'cc_activity_id');
     }
 
 }

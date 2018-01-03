@@ -10,7 +10,7 @@ class Activity extends Model
 
     public function theme()
     {
-        return $this->belongsTo(theme::class,'cc_theme_id');
+        return $this->belongsTo(Theme::class,'cc_theme_id');
     }
 
 }
