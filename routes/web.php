@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('cc/theme', 'Cc\ThemeController@index');
+Route::get('cc/themes', 'Cc\ThemeController@themes');
+Route::get('cc/theme/{id?}', 'Cc\ThemeController@index');
 Route::get('cc/activity/{id?}', 'Cc\ActivityController@index');
 Route::get('cc/chapter/{id?}', 'Cc\ChapterController@index');

@@ -6,6 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 <body>
-chapter detail
+ @foreach($theme as $key=>$val)
+       {{$val->id}}
+ <a href="/cc/theme/{{$val->id}}">{{$val->title}}</a>
+       {{$val->description}}
+ @endforeach
 </body>
 </html>
