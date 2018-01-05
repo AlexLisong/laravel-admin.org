@@ -1,0 +1,86 @@
+/* Miscellaneous Drupal and maia theme overrides/adjustments */
+html {
+  padding: 0;
+}
+
+/* Adjust for presence of Drupal admin menu */
+.admin-menu .h-c-header__bar {
+  top: 20px;
+}
+
+/* Don't let hercules color pages white */
+body {
+  background: #fafafa;
+}
+
+/* Keep maia typography */
+#maia-main, #maia-main p, .maia-aux, .maia-aux p, .maia-cols, .maia-cols p {
+  font-family: arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.54;
+}
+#maia-main p, #maia-main pre, #maia-main table, #maia-main form,
+.maia-aux p, .maia-aux pre, .maia-aux table, .maia-aux form,
+.maia-cols p, .maia-cols pre, .maia-cols table, .maia-cols form {
+  margin: 10px 0;
+}
+#maia-main h1+p, #maia-main h2+p, #maia-main h3+p, #maia-main h4+p, #maia-main h5+p, #maia-main h6+p {
+  margin-top: 0;
+}
+#maia-main h1, .maia-aux h1, .maia-cols h1, #maia-main h2, .maia-aux h2, .maia-cols h2 {
+  line-height: 1.29;
+}
+/*#maia-main h1, #maia-main h2, #maia-main h3, #maia-main h4, #maia-main h5, #maia-main h6,
+.maia-aux h1, .maia-aux h2, .maia-aux h3, .maia-aux h4, .maia-aux h5, .maia-aux h6,
+.maia-cols h1, .maia-cols h2, .maia-cols h3, .maia-cols h4, .maia-cols h5, .maia-cols h6 {
+  font-family: "open sans", arial, sans-serif;
+  margin: 1.236em 0 .618em;
+  font-weight: bold;
+}*/
+#maia-main h1, .maia-aux h1, .maia-cols h1 {
+  font-size: 20px;
+}
+#maia-main h2, .maia-aux h2, .maia-cols h2 {
+  font-size: 16px;
+}
+#maia-main h3, .maia-aux h3, .maia-cols h3 {
+  font-size: 14px;
+  line-height: 1.43;
+}
+/*#maia-main a, .maia-aux a, .maia-cols a {
+  color: #245dc1;
+}
+#maia-main a:visited, .maia-aux a:visited, .maia-cols a:visited {
+  color: #7759ae;
+}
+#maia-main a:focus, .maia-aux a:focus, #maia-main a:hover,
+.maia-aux a:hover, #maia-main a:active, .maia-aux a:active,
+.maia-cols a:hover, #maia-main a:active, .maia-cols a:active {
+  text-decoration: underline;
+}*/
+#maia-main ul, .maia-aux ul, .maia-cols ul, #maia-main ol, .maia-aux ol, .maia-cols ol {
+  margin: 10px 10px 10px 30px;
+  padding: 0;
+}
+
+/* Keep maia table formatting */
+#maia-main th, .maia-aux th, .maia-cols th, #maia-main td, .maia-aux td, .maia-cols td {
+  border: 1px solid #eee;
+  padding: 4px 12px;
+  vertical-align: top;
+}
+
+/* Keep maia box sizing */
+#maia-main div {
+  box-sizing: content-box;
+}
+
+/* Miscellaneous adjustments */
+.maia-cols select {
+  width: auto;
+  font-size: 13px;
+}
+
+.maia-stage {
+  margin: 0;
+}

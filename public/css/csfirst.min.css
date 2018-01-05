@@ -1,0 +1,639 @@
+/*
+ * Home page
+*/
+
+.svg-assets {display: none;}
+
+section {
+  position: relative;
+}
+
+.material-icons {
+  vertical-align: middle;
+}
+
+.h-no-bullet li {
+  margin-bottom: 8px;
+}
+
+/* Footer */
+
+.h-c-footer .disclaimers {
+  padding: 24px 0;
+}
+
+.h-c-footer .disclaimers p {
+  font-size: 15px;
+  margin: 0;
+}
+
+.h-c-footer .h-c-social {
+  padding: 32px 0 0;
+  border-top: 1px solid #e2e2e2;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+/* Jump down arrows */
+
+.jump-down {
+  background: #B0BEC5;
+  border-radius: 50%;
+  bottom: -24px;
+  display: block;
+  font-size: 36px;
+  height: 48px;
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  transition: background .2s;
+  width: 48px;
+  z-index: 10;
+}
+
+.jump-down, .jump-down:visited {
+  color: #fff;
+}
+
+.jump-down:hover {
+  background: #90A4AE;
+  color: #fff;
+}
+
+.jump-down .material-icons {
+  vertical-align: baseline;
+}
+
+/* Hero */
+
+.hero {
+  background-position: center;
+  background-size: cover;
+}
+
+.hero .h-c-headline,
+.hero p {
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.50);
+}
+
+.hero.home {
+  background-image: url('https://csfirst.withgoogle.com/images/hero-index.jpg');
+  padding: 120px 0;
+}
+
+.hero.home .h-c-page {
+  max-width: 850px;
+}
+
+/* Student CTA bar */
+
+.student-cta {
+  background: #212121;
+  padding: 8px 0;
+  text-align: center;
+}
+
+.student-cta a {
+  color: #e0e0e0;
+  display: block;
+  transition: .2s;
+}
+
+.student-cta a:hover {
+  color: #fff;
+}
+
+.student-cta img {/* Android head */
+  bottom: -8px;
+  margin-right: 16px;
+  position: relative;
+  transition: .2s;
+  width: 100px;
+}
+
+.student-cta a:hover img {
+  bottom: 0;
+}
+
+.yellow {
+  color: #FFEB3B;
+}
+
+/* Breadcrumb */
+
+.breadcrumb {
+  background: #FAFAFA;
+  padding: 1em 0;
+}
+.breadcrumb ol {
+  margin-left: 0;
+}
+
+/* Anyone can teach */
+
+.anyone-can-teach {
+  background: #FAFAFA;
+  padding: 80px 0;
+}
+
+/* How it works */
+
+.how-it-works {
+  padding: 80px 0;
+}
+
+.how-it-works .h-c-grid {
+  margin-top: 64px;
+}
+
+.how-it-works .h-c-grid .material-icons {
+  color: #00BCD4;
+  display: block;
+  font-size: 64px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 599px) {
+
+  .glue-flexbox .h-c-grid__col {
+    margin-bottom: 40px;
+  }
+
+  .how-it-works .h-c-grid {
+    margin-top: 32px;
+  }
+
+  .how-it-works .h-c-grid .material-icons {
+    margin-bottom: 16px;
+  }
+
+}
+
+/* Everything you need */
+
+.everything-you-need {
+  background-color: #fafafa;
+  background-image: url('https://csfirst.withgoogle.com//images/kit-bg.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 160px 0;
+}
+
+@media (max-width: 599px) {
+
+  .everything-you-need {
+    background-image: url('https://csfirst.withgoogle.com//images/kit.png');
+    background-position: top -210px center;
+    background-size: 600px;
+    padding: 260px 0 80px;
+  }
+
+}
+
+/* Theme-based projects */
+
+.theme-based-projects {
+  padding: 80px 0;
+}
+
+.theme-based-projects p {
+  margin: 0 auto 24px;
+  max-width: 600px;
+}
+
+.theme-feature-container {
+  text-align: center;
+}
+
+.theme-feature {
+  display: inline-block;
+  margin: 0 8px;
+  text-align: center;
+  width: 100px;
+}
+
+.theme-name {
+  font-weight: 500;
+  opacity: 0;
+  padding-bottom: 8px;
+  transition: .3s;
+}
+
+.theme-icon {
+  height: 124px;
+}
+
+.theme-icon img {
+  bottom: -24px;
+  position: relative;
+  transition: .3s;
+}
+
+.theme-icon-reflection {
+  height: 50px;
+  overflow: hidden;
+}
+
+.theme-icon-reflection img {
+  top: 0;
+  position: relative;
+  transition: .3s;
+}
+
+.storytelling .theme-name {
+  color: #0E9C57;
+}
+
+.art .theme-name {
+  color: #9B26AF;
+}
+
+.games .theme-name {
+  color: #0098A6;
+}
+
+.fashion .theme-name {
+  color: #526CFD;
+}
+
+.music .theme-name {
+  color: #4CB6AC;
+}
+
+.friends .theme-name {
+  color: #FF9700;
+}
+
+.social .theme-name {
+  color: #D71A80;
+}
+
+.sports .theme-name {
+  color: #DB4437;
+}
+
+.animation .theme-name {
+  color: #FF5252;
+}
+
+.highseas .theme-name {
+  color: #3F51B5;
+}
+
+.theme-feature:hover .theme-name {
+  opacity: 1;
+}
+
+.theme-feature:hover .theme-icon img {
+  bottom: 0;
+}
+
+.theme-feature:hover .theme-icon-reflection img {
+  top: 24px;
+  opacity: .2;
+}
+
+@media (max-width: 600px) { /* Show theme names and hide reflectiosn on mobile */
+
+  .theme-icon-reflection {
+    display: none;
+  }
+
+  .theme-name {
+    opacity: 1;
+  }
+
+  .theme-icon {
+    height: 100px;
+    margin-bottom: 36px;
+  }
+
+  .theme-icon img {
+    bottom: 0;
+  }
+
+}
+
+/* Why Computer Science */
+
+.why-cs {
+  background: #FAFAFA;
+  padding: 80px 0;
+}
+
+/* Impact map */
+
+.impact-map {
+  padding: 80px 0;
+}
+
+#map {
+  width: 100%;
+  height: 400px;
+  background: rgb(163, 204, 255) url('https://csfirst.withgoogle.com//images/map.png') center no-repeat;
+}
+
+.homeMap-map-control {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  background-color: #fff;
+  z-index: 1;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.homeMap-map-zoom-in, .homeMap-map-zoom-out {
+  height: 29px;
+  width: 29px;
+  display: block;
+  opacity: .8;
+}
+
+.homeMap-map-zoom-in {
+  border-bottom: 1px solid #d5d5d5;
+}
+
+.homeMap-map-zoom-in-button, .homeMap-map-zoom-out-button {
+  height: 21px;
+  width: 21px;
+  margin: 4px;
+  display: inline-block;
+  -webkit-user-select: none;
+  background: transparent url("//www.gstatic.com/gmeviewer/images/viewer-icons001.png") no-repeat;
+}
+
+.homeMap-map-zoom-in-button {
+  background-position: -64px -1px;
+}
+
+.homeMap-map-zoom-out-button {
+  background-position: -85px -1px;
+}
+
+
+/* More CS at Google */
+
+.more-cs-at-google {
+  padding: 80px 0;
+}
+
+/*
+ * Curriculum page
+*/
+
+.hero.curriculum {
+  background-image: url('https://csfirst.withgoogle.com/images/hero-csfirst-curriculum.jpg');
+  padding: 64px 0;
+}
+
+.curriculum .h-c-headline {
+  display: inline-block;
+}
+
+.curriculum .h-c-headline.h-c-headline--one {
+  margin-right: 16px;
+}
+
+.subtitle {
+  max-width: 645px;
+}
+
+/* Header enhancements */
+.h-c-header__cta-li.current-user {
+  color: #757575;
+  display: table;
+  font-size: 14px;
+  font-weight: 400;
+  height: 48px;
+  letter-spacing: .25px;
+  padding-left: 16px;
+  padding-right: 16px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .h-c-header__cta-li.current-user {
+    padding-top: 22px;
+    height: 63px;
+    padding-left: 0;
+    padding-right: 0;
+    width: auto;
+  }
+}
+
+.h-c-header__cta-li.current-user {
+  display: table-cell;
+  color: #757575;
+  vertical-align: middle;
+}
+
+/* Theme sections */
+
+.themes {
+  background: #fafafa;
+}
+
+.themes.sample {
+  padding-top: 64px;
+}
+
+.themes.complete {
+  padding: 48px 0 104px;
+}
+
+.themes .subtitle {
+  margin-bottom: 24px;
+}
+
+.glue-flexbox .h-c-grid__col--12.theme-card {
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.14), 0 2px 2px 0 rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Stick button row to bottom of card */
+  margin-bottom: 36px;
+}
+
+.theme-card-body {
+  display: flex;
+  padding: 24px 24px 32px;
+  position: relative;
+}
+
+.theme-card-icon {
+  flex: 0 0 auto;
+  padding-right: 16px;
+  width: 100px;
+}
+
+.theme-card-name {
+  margin-bottom: 8px;
+  padding-right: 150px;
+}
+
+.theme-card-difficulty {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+}
+
+.theme-card-buttons {
+  border-top: 1px solid #e0e0e0;
+}
+
+.theme-card-buttons li {
+  position: relative;
+}
+
+.theme-card-buttons li a .material-icons {
+  position: relative;
+  top: -2px;
+}
+
+.theme-card-buttons li a {
+  font-size: 14px;
+  font-weight: 500;
+  color: #757575;
+  letter-spacing: 0;
+}
+
+.theme-card-buttons li a:visited {
+  color: #757575;
+}
+
+.theme-card-buttons li a:hover {
+  color: #4285f4;
+}
+
+.theme-card-buttons li:first-child a {
+  color: #3367d6;
+}
+
+.theme-card-buttons li:first-child a:visited {
+  color: #3367d6;
+}
+
+.theme-card-buttons li:first-child a:hover {
+  color: #4285f4;
+}
+
+.theme-card-buttons ul {
+  margin: 8px 8px 0;
+}
+
+.theme-card-buttons li {
+  display: inline-block;
+  margin: 0 8px 8px;
+}
+
+.theme-card-buttons .material-icons {
+  font-size: 21px;
+}
+
+.difficulty {
+  font-weight: 500;
+}
+
+.difficulty.easier {
+  color: #4CAF50;
+}
+
+.difficulty.moderate {
+  color: #00BCD4;
+}
+
+.difficulty.challenging {
+  color: #FF9700;
+}
+
+.difficulty.advanced {
+  color: #FF5722;
+}
+
+@media (max-width: 599px) {
+
+  /* Move difficulty to underneath theme name */
+  .theme-card-name {
+    padding: 0;
+  }
+
+  .theme-card-difficulty {
+    margin-bottom: 8px;
+    position: relative;
+    right: 0;
+    top: 0;
+  }
+
+}
+
+/*
+ * Sign in page
+*/
+
+.signin {
+  background: #fafafa;
+  padding: 80px 0 160px;
+}
+
+.signin .h-c-grid__col {
+  margin-top: 24px;
+}
+
+.signin-box {
+  background: #fff;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.14), 0 2px 2px 0 rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
+  display: block;
+  height: 100%;
+  padding: 24px;
+  text-align: center;
+  transition: box-shadow .2s;
+}
+
+.signin-box:hover {
+  box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 3px rgba(0,0,0,0.12), 0 4px 5px 0 rgba(0,0,0,0.20);
+}
+
+.signin-box,
+.signin-box:hover,
+.signin-box:visited {
+  color: #414141;
+}
+
+.signin-box img {
+  margin-bottom: 24px;
+  max-height: 250px;
+}
+
+@media (max-width: 599px) {
+
+  .signin {
+    padding: 36px 0 64px;
+  }
+
+  .signin-box img {
+    max-height: 150px;
+  }
+
+}
+
+/* Student sign in page */
+
+.signin-student-box {
+  background: #fff;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.14), 0 2px 2px 0 rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
+  max-width: 500px;
+  margin: 24px auto 0;
+  padding: 24px;
+}
+
+.signin-student-box form input {
+  border: 1px solid #e0e0e0;
+  margin-bottom: 16px;
+  padding: 8px;
+  width: 100%;
+}

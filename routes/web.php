@@ -19,3 +19,19 @@ Route::get('cc/themes', 'Cc\ThemeController@themes');
 Route::get('cc/theme/{id?}', 'Cc\ThemeController@index');
 Route::get('cc/activity/{id?}', 'Cc\ActivityController@index');
 Route::get('cc/chapter/{id?}', 'Cc\ChapterController@index');
+
+
+Route::get('macros', 'FrontendController@macros')->name('macros');
+Route::get('cshome', 'FrontendController@cshome')->name('cshome');
+Route::get('sign_in', 'FrontendController@sign_in')->name('signin');
+Route::get('lesson_list', 'FrontendController@lesson_list')->name('teacher.lesson.list');
+Route::get('sign_in_student', 'FrontendController@sign_in_student')->name('student.signin');
+Route::get('sign_in_teacher', 'FrontendController@sign_in_teacher')->name('teacher.signin');
+Route::get('upload_video', 'FrontendController@upload_video')->name('upload_video');
+Route::get('materials', 'FrontendController@materials')->name('materials');
+Route::get('club/{id}', 'FrontendController@teacher_club_overview')->name('teacher_club_overview');
+Route::get('club/{id}/materials', 'FrontendController@teacher_club_overview')->name('teacher_club_overview');
+
+Route::get('scratch', 'FrontendController@scratch')->name('scratch');
+Route::get('contact', 'ContactController@index')->name('contact');
+Route::post('contact/send', 'ContactController@send')->name('contact.send');

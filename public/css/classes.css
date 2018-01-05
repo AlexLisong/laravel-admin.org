@@ -1,0 +1,223 @@
+.maia-aside.whitecard.unlaunched {
+  border: 2px solid #da4336;
+}
+
+div.myclubs-status.small {
+  display: inline-block;
+  font-size: 13px;
+  margin-top: 0px;
+}
+
+div.myclubs-status.small a {
+  margin-left: 0px;
+}
+
+.myclubs-card {
+  min-height: 100px;
+  overflow: hidden;
+}
+
+.myclubs-card .themeicon {
+  margin-bottom: 0;
+}
+
+.myclubs-description {
+  display: table-cell;
+  max-width: 563px;
+}
+
+.myclubs-description h2 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: 300;
+  font-size: 20px;
+  white-space: nowrap;
+}
+
+.myclubs-description .myclubs-status {
+  font-size: 14px;
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.myclubs-description .myclubs-status a {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  color: #4185f4;
+  margin-left: 10px;
+}
+
+.myclubs-description .myclubs-status a:visited {
+  color: #4185f4;
+}
+
+.myclubs-description .myclubs-status.incomplete {
+  color: #da4336;
+}
+
+.myclubs-description .myclubs-status.complete {
+  color: #0e9c57;
+}
+
+.myclubs-description .myclubs-status.past {
+  color: #a2a2a2;
+}
+
+.myclubs-actionbuttons {
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-top: 25px;
+  padding-right: 20px;
+}
+
+.myclubs-actionbuttons, .myclubs-actionbuttons a {
+  z-index: 2;
+}
+
+.myclubs-actionbuttons a {
+  background-repeat: no-repeat;
+  background-position: top left;
+  display: inline-block;
+  width: 35px;
+  height: 25px;
+  text-align: left;
+  padding-top: 25px;
+  transition: .2s;
+  vertical-align: top;
+}
+
+.myclubs-actionbuttons a:last-child {
+  display: inline-table;
+}
+
+.myclubs-actionbuttons a {
+  color: transparent;
+}
+
+.myclubs-actionbuttons a:hover {
+  color: #4184f3;
+  text-decoration: none;
+}
+
+.myclubs-actionbuttons .notifications {
+  background-image: url('/img/assets/myclubs-actionbuttons-notifications-grey.png');
+}
+
+.myclubs-actionbuttons .notifications:hover {
+  background-image: url('/img/assets/myclubs-actionbuttons-notifications-blue.png');
+}
+
+.myclubs-actionbuttons .setup {
+  background-image: url('/img/assets/myclubs-actionbuttons-setup-grey.png');
+}
+
+.myclubs-actionbuttons .setup:hover {
+  background-image: url('/img/assets/myclubs-actionbuttons-setup-blue.png');
+}
+
+.myclubs-actionbuttons .materials {
+  background-image: url('/img/assets/myclubs-actionbuttons-materials-grey.png');
+}
+
+.myclubs-actionbuttons .materials:hover {
+  background-image: url('/img/assets/myclubs-actionbuttons-materials-blue.png');
+}
+
+.myclubs-actionbuttons .stats {
+  background-image: url('/img/assets/myclubs-actionbuttons-stats-grey.png');
+}
+
+.myclubs-actionbuttons .stats:hover {
+  background-image: url('/img/assets/myclubs-actionbuttons-stats-blue.png');
+}
+
+.myclubs-notification-number {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  color: #fff;
+  background-color: #da4336;
+  text-align: center;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.myclubs-club-code.club-code {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+}
+
+#toggle-past-clubs {
+  cursor: pointer;
+  margin-top: 40px;
+}
+
+#myclubs-start-club {
+  float: right;
+  position: relative;
+  width: 320px;
+  color: #fff;
+}
+
+#myclubs-start-club a.pink {
+  position: absolute;
+  right: 0;
+}
+
+#myclubs-start-club.open a.pink {
+  background-color: #eb3f79;
+}
+
+#myclubs-start-club #myclubs-start-club-dropdown {
+  background: #ff3f80;
+  position: absolute;
+  right: 0;
+  top: 35px;
+  z-index: 3;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+  display: none;
+}
+
+#myclubs-start-club.open #myclubs-start-club-dropdown {
+  display: block;
+}
+
+#myclubs-start-club #myclubs-start-club-dropdown ul {
+  margin: 0;
+}
+
+#myclubs-start-club #myclubs-start-club-dropdown p {
+  padding: 10px;
+  margin: 0;
+}
+
+#myclubs-start-club #myclubs-start-club-dropdown ul li {
+  list-style-type: none;
+  border-top: 1px solid #eb3f79;
+}
+
+#myclubs-start-club #myclubs-start-club-dropdown ul li a {
+  display: block;
+  padding: 10px 10px 10px 15px;
+  color: #fff;
+  font-weight: bold;
+  transition: .2s;
+}
+
+#myclubs-start-club #myclubs-start-club-dropdown ul li a:hover {
+  text-decoration: none;
+  background-color: #eb3f79;
+}
+
+@media screen and (max-width:767px) {
+  .myclubs-card .themeicon {
+    display: none;
+  };
+}
