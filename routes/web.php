@@ -15,10 +15,11 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('cc/themes', 'Cc\ThemeController@themes');
-Route::get('cc/theme/{id?}', 'Cc\ThemeController@index');
-Route::get('cc/activity/{id?}', 'Cc\ActivityController@index');
-Route::get('cc/chapter/{id?}', 'Cc\ChapterController@index');
+Route::get('themes', 'Cc\ThemeController@themes');
+//Route::get('materials', 'FrontendController@materials')->name('materials');
+Route::get('theme/{id?}', 'Cc\ThemeController@index');
+Route::get('activity/{id?}', 'Cc\ActivityController@index');
+Route::get('chapter/{id?}', 'Cc\ChapterController@index');
 
 
 Route::get('macros', 'FrontendController@macros')->name('macros');
@@ -28,7 +29,6 @@ Route::get('lesson_list', 'FrontendController@lesson_list')->name('teacher.lesso
 Route::get('sign_in_student', 'FrontendController@sign_in_student')->name('student.signin');
 Route::get('sign_in_teacher', 'FrontendController@sign_in_teacher')->name('teacher.signin');
 Route::get('upload_video', 'FrontendController@upload_video')->name('upload_video');
-Route::get('materials', 'FrontendController@materials')->name('materials');
 Route::get('club/{id}', 'FrontendController@teacher_club_overview')->name('teacher_club_overview');
 Route::get('club/{id}/materials', 'FrontendController@teacher_club_overview')->name('teacher_club_overview');
 

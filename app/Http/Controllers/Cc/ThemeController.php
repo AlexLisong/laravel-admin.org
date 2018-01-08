@@ -31,10 +31,13 @@ class ThemeController extends Controller
         }])->where('cc_theme_id',$id)
             ->get();
         return view('cc/theme',compact('activities'));
+
     }
     public function themes()
     {
         $theme = Theme::all();
-        return view('cc/themes',compact('theme'));
+//        return view('cc/themes',compact('theme'));
+        return view('frontend.themes');
+
     }
 }
