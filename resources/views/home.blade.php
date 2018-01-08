@@ -53,7 +53,7 @@
                         <li><a href="#extensions" class="scroll-to">Extensions</a></li>
                         <li><a href="http://discuss.laravel-admin.org">Discuss</a></li>
                         <li><a href="/docs">Documentation</a></li>
-                        <li><a href="/demo">Demo</a></li>
+                        <li><a href="/cc-admin">Demo</a></li>
                     </ul>
                 </div>
             </div>
