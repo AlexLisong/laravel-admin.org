@@ -37,12 +37,24 @@ Route::group([
         'china/city'            => China\CityController::class,
         'china/district'        => China\DistrictController::class,
         
-        'cc/theme'              => Cc\ThemeController::class,
-        'cc/activity'           => Cc\ActivityController::class,
-        'cc/chapter'            => Cc\ChapterController::class,
-        'cc/article'            => Cc\ArticleController::class,
-        'cc/material'           => Cc\MaterialController::class,
     ]);
+
+    Route::group([
+        'middleware' => 'admin.permission:allow,administrator,materialcreator',
+    ], function ($router) {
+
+        $router->resources([
+            'cc/theme'              => Cc\ThemeController::class,
+            'cc/activity'           => Cc\ActivityController::class,
+            'cc/chapter'            => Cc\ChapterController::class,
+            'cc/article'            => Cc\ArticleController::class,
+            'cc/material'           => Cc\MaterialController::class
+        ]);
+        
+        $router->any('cc/activity/{id}/chapters', 'Cc\ActivityController@crudChapters');
+
+    });
+
 
     $router->post('posts/release', 'PostController@release');
     $router->post('posts/restore', 'PostController@restore');
@@ -64,6 +76,6 @@ Route::group([
     $router->get('widgets/tab', 'WidgetsController@tab');
     $router->get('widgets/notice', 'WidgetsController@notice');
     $router->get('widgets/editors', 'WidgetsController@editors');
-
-    $router->get('api/cc/themes', 'Cc\ApiController@themes');
 });
+
+

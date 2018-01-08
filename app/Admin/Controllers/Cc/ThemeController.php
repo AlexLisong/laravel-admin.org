@@ -94,13 +94,21 @@ class ThemeController extends Controller
     protected function form()
     {
         return Admin::form(Theme::class, function (Form $form) {
-            $form->display('id', 'ID');
-            $form->text('title');
-            $form->image('icon_file');
-            $form->textarea('description')->rules('required');
-            $form->text('level')->rules('required');
-            $form->text('icon');
-            $form->text('sortorder');
+            $form->display('id','编号');
+            $form->text('title', '标题');
+            $form->image('icon_file', '图标');
+            // $form->icon('icon');
+            $form->textarea('description','描述')->rules('required');
+            $form->select('level','级别')->rules('required')->options([1 => '初级', 2 => '中等', 3 => '高级']);
+
+            $form->saved(function () {
+                admin_toastr(trans('admin.update_succeeded'));
+
+                return redirect(admin_base_path('cc/activity/create'));
+                
+            });
+            
+            // $form->text('sortorder');
             
             // 修改图片上传路径和文件名
             // $form->image('icon_file')->move($dir, $name);

@@ -4,6 +4,7 @@ namespace App\Admin\Controllers\Cc;
 
 use App\Models\Cc\Activity;
 use App\Models\Cc\Theme;
+use App\Models\Cc\Chapter;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
@@ -23,7 +24,7 @@ class ActivityController extends Controller
     public function index()
     {
         return Admin::content(function (Content $content) {
-            
+
             $content->header('Activity');
             $content->description('description');
             $content->body($this->grid());
@@ -73,14 +74,8 @@ class ActivityController extends Controller
         return Admin::grid(Activity::class, function (Grid $grid) {
             $grid->id('id')->sortable();
             $grid->title();
-            $grid->sortorder();
             $grid->theme()->title();
             $grid->description();
-            $grid->example();
-            $grid->solution_sheet();
-            $grid->showcase();
-            $grid->lesson_plan();
-
             $grid->filter(function ($filter) {
                 $filter->like('title');
             });
@@ -97,18 +92,28 @@ class ActivityController extends Controller
     protected function form()
     {
         return Admin::form(Activity::class, function (Form $form) {
-            
-            $form->display('id','ID');
-            $form->text('title');
-            $form->icon('icon');
-            $form->image('icon_file');
-            $form->text('sortorder')->rules('required');
-            $form->select('cc_theme_id')->options(Theme::all()->pluck('title', 'id'));
-            $form->text('description')->rules('required');
-            $form->text('example')->rules('required');
-            $form->text('solution_sheet')->rules('required');
-            $form->text('showcase')->rules('required');
-            $form->editor('lesson_plan')->rules('required');
+
+            $form->tab('Activity Info', function ($form) {
+                $form->display('id','编号');
+                $form->text('title', '标题');
+            // $form->icon('icon');
+                $form->image('icon_file', '图标');
+            // $form->text('sortorder')->rules('required');
+                $form->select('cc_theme_id', '所属主题')->options(Theme::all()->pluck('title', 'id'));
+                $form->text('description','描述')->rules('required');
+            // $form->text('example')->rules('required');
+            // $form->text('solution_sheet')->rules('required');
+            // $form->text('showcase')->rules('required');
+                $form->editor('lesson_plan')->rules('required');
+            })->tab('Chapter Info', function ($form) {
+                $form->hasMany('chapters', '页面', function (Form\NestedForm $form) {
+                $form->text('title');//->rules('required');
+                $form->text('content');//->rules('required');
+            });
+                $form->saved(function (Form $form) {
+                   admin_toastr(trans('admin.update_succeeded'));
+               });
+            });
         });
     }
 }

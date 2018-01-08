@@ -19,20 +19,41 @@ class HomeController extends Controller
             $content->description('Description...');
 
             $content->row(Dashboard::title());
+            if(Admin::user()->isRole('administrator')){
+                $this->getMaterialCreatorIndex($content);
+            }else if(Admin::user()->isRole('materialcreator')){
+                $this->getMaterialCreatorIndex($content);
+            }else{
+                $this->getAdminIndex($content);
+            }
+        });
+    }
+    public function getAdminIndex($content){
+        $content->row(function (Row $row) {
 
-            $content->row(function (Row $row) {
+            $row->column(4, function (Column $column) {
+                $column->append(Dashboard::environment());
+            });
 
-                $row->column(4, function (Column $column) {
-                    $column->append(Dashboard::environment());
-                });
+            $row->column(4, function (Column $column) {
+                $column->append(Dashboard::extensions());
+            });
 
-                $row->column(4, function (Column $column) {
-                    $column->append(Dashboard::extensions());
-                });
+            $row->column(4, function (Column $column) {
+                $column->append(Dashboard::dependencies());
+            });
+        });
+    }
 
-                $row->column(4, function (Column $column) {
-                    $column->append(Dashboard::dependencies());
-                });
+    public function getMaterialCreatorIndex($content){
+        $content->row(function (Row $row) {
+
+            $row->column(6, function (Column $column) {
+                $column->append('<a href="/admin/cc/theme/create">创造新课程</a> ');
+            });
+
+            $row->column(6, function (Column $column) {
+                $column->append('<a href="/admin/cc/theme">修改现有课程</a>');
             });
         });
     }
