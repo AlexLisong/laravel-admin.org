@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Cc;
 
-use App\Models\Cc\Activitie;
+use App\Models\Cc\Activity;
 use App\Models\Cc\Chapter;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -23,7 +23,7 @@ class ChapterController extends Controller
   
      public function index($id)
     {
-       $chapters = Chapter::where('cc_activity_id',$id)->get();
-       return view('cc/chapter',compact('chapters'));
+       $chapter = Chapter::find($id);
+       return view('cc/chapter',compact('chapter'));
     }
 }

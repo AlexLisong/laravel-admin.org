@@ -7,6 +7,12 @@
     "require": {
         "php": ">=7.0.0",
         "encore/laravel-admin": "1.5.x-dev",
+        "appstract/laravel-blade-directives": "^0.4.4",
+        "arcanedev/log-viewer": "^4.4",
+        "arcanedev/no-captcha": "^5.0",
+        "creativeorange/gravatar": "~1.0",
+        "davejamesmiller/laravel-breadcrumbs": "^4.1",
+        "hieu-le/active": "^3.5",
         "fideloper/proxy": "~3.3",
         "intervention/image": "^2.4",
         "laravel-admin-ext/api-tester": "dev-master",
@@ -19,6 +25,7 @@
         "laravel-admin-ext/reporter": "dev-master",
         "laravel-admin-ext/scheduling": "dev-master",
         "laravel/framework": "5.5.*",
+        "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "maatwebsite/excel": "~2.1.0",
         "spatie/eloquent-sortable": "^3.4",
@@ -26,7 +33,11 @@
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.0",
+        "spatie/laravel-html": "^2.4",
+        "spatie/laravel-permission": "^2.5",
+        "webpatser/laravel-uuid": "^3.0",
         "fzaninotto/faker": "~1.4",
+        "filp/whoops": "~2.0",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~6.0"
     },
@@ -36,7 +47,10 @@
         ],
         "psr-4": {
             "App\\": "app/"
-        }
+        },
+        "files": [
+            "app/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

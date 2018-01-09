@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Cc;
 
 use Encore\Admin\Widgets\Box;
-use App\Models\Cc\Activitie;
+use App\Models\Cc\Activity;
 use App\Models\Cc\Theme;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -24,10 +24,20 @@ class ThemeController extends Controller
      * @return Content
      */
   
-     public function index()
+     public function index($id)
     {
-        $theme = Theme::all(); 
-        return view('cc/theme',compact('theme'));
-    }
+        $activities = Activity::with(['Theme'=>function($query){
+            $query->select('id','title');
+        }])->where('cc_theme_id',$id)
+            ->get();
+        return view('cc/theme',compact('activities'));
 
+    }
+    public function themes()
+    {
+        $theme = Theme::all();
+//        return view('cc/themes',compact('theme'));
+        return view('frontend.themes');
+
+    }
 }

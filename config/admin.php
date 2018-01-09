@@ -22,7 +22,7 @@ return [
      */
     'route' => [
 
-        'prefix' => 'demo',
+        'prefix' => 'cc-admin',
 
         'namespace'     => 'App\\Admin\\Controllers',
 
