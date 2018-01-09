@@ -35,9 +35,9 @@ class ThemeController extends Controller
     }
     public function themes()
     {
-        $theme = Theme::all();
+        $themes = Theme::all();
 //        return view('cc/themes',compact('theme'));
-        return view('frontend.themes');
+        return view('frontend.themes',compact('themes'));
 
     }
 }

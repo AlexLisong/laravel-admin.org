@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\ChinaArea;
 use Illuminate\Support\Facades\DB;
+use Hash;
 
 
 class FrontendController extends Controller
@@ -55,6 +56,16 @@ class FrontendController extends Controller
     }
     public function lesson_list(Request $request)
     {
+        $name = isset($request->name) ? $request->name : '';
+        $pass = isset($request->pass) ? $request->pass : '';
+        $res = DB::table('demo_users')->where('name',$name)->select('password')->first();
+        if(empty($res)){
+            echo '用户不存在';exit;
+        }
+        if(!Hash::check($pass, $res->password)){
+            echo '密码不正确';exit;
+        }
+
         return view('frontend.lesson_list');
     }
     public function upload_video(Request $request)
@@ -83,4 +94,5 @@ class FrontendController extends Controller
 
         return ChinaArea::city()->where('parent_id', $provinceId)->get(['id', DB::raw('name as text')]);
     }
+
 }

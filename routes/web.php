@@ -55,3 +55,4 @@ Route::get('scratch', 'FrontendController@scratch')->name('scratch');
 Route::get('contact', 'ContactController@index')->name('contact');
 Route::post('contact/send', 'ContactController@send')->name('contact.send');
 Route::get('/api/city', 'FrontendController@city')->name('getcities');
+Route::get('/lesson_list/{name}/{pass}', 'FrontendController@lesson_list')->name('/lesson_list');

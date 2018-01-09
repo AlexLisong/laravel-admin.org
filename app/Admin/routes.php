@@ -48,7 +48,9 @@ Route::group([
             'cc/activity'           => Cc\ActivityController::class,
             'cc/chapter'            => Cc\ChapterController::class,
             'cc/article'            => Cc\ArticleController::class,
-            'cc/material'           => Cc\MaterialController::class
+            'cc/material'           => Cc\MaterialController::class,
+            'cc/club'               => Cc\ClubController::class,
+            'cc/student-club'       => Cc\StudentClubController::class,
         ]);
         
         $router->any('cc/activity/{id}/chapters', 'Cc\ActivityController@crudChapters');
