@@ -54,3 +54,4 @@ Route::get('club/{id}/materials', 'FrontendController@teacher_club_overview')->n
 Route::get('scratch', 'FrontendController@scratch')->name('scratch');
 Route::get('contact', 'ContactController@index')->name('contact');
 Route::post('contact/send', 'ContactController@send')->name('contact.send');
+Route::get('/api/city', 'FrontendController@city')->name('getcities');

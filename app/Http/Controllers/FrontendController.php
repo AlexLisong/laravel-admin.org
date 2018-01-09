@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\ChinaArea;
+use Illuminate\Support\Facades\DB;
 
 
 class FrontendController extends Controller
@@ -74,5 +76,11 @@ class FrontendController extends Controller
     public function macros()
     {
         return view('frontend.macros');
+    }
+    public function city(Request $request)
+    {
+        $provinceId = $request->get('q');
+
+        return ChinaArea::city()->where('parent_id', $provinceId)->get(['id', DB::raw('name as text')]);
     }
 }
