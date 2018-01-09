@@ -1,5 +1,10 @@
+/**
+ * This bootstrap file is used for both frontend and backend
+ */
 
 window._ = require('lodash');
+window.swal = require('sweetalert2');
+import Popper from 'popper.js/dist/umd/popper.js';
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -10,7 +15,11 @@ window._ = require('lodash');
 try {
     window.$ = window.jQuery = require('jquery');
 
-    require('bootstrap-sass');
+    // Required for BS4
+    window.Tether = require('tether');
+    window.Popper = Popper;
+
+    require('bootstrap');
 } catch (e) {}
 
 /**
