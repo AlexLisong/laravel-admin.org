@@ -8,7 +8,7 @@
 <body>
 @foreach($activities as $key=>$val)
     {{$val->id}} -
-    <a href="/cc/activity/{{$val->id}}">{{$val->title}}</a> - {{$val->description}} - {{isset($val->Theme->title) ? $val->Theme->title : ''}} - {{$val->example}} - {{$val->solution_sheet}} - {{$val->showcase}} - {{$val->lesson_plan}} - <br />
+    <a href="/activity/{{$val->id}}">{{$val->title}}</a> - {{$val->description}} - {{isset($val->Theme->title) ? $val->Theme->title : ''}} - {{$val->example}} - {{$val->solution_sheet}} - {{$val->showcase}} - {{$val->lesson_plan}} - <br />
 @endforeach
 </body>
 </html>

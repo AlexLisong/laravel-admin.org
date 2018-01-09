@@ -8,7 +8,7 @@
 <body>
  @foreach($theme as $key=>$val)
        {{$val->id}}
- <a href="/cc/theme/{{$val->id}}">{{$val->title}}</a>
+ <a href="/theme/{{$val->id}}">{{$val->title}}</a>
        {{$val->description}}
  @endforeach
 </body>

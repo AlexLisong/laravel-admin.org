@@ -7,7 +7,7 @@
 </head>
 <body>
 @foreach($chapters as $key=>$val)
-    <a href="/cc/chapter/{{$val->id}}">{{$val->id}}</a> - {{$val->video}} - {{$val->content}} - {{$val->iframe_url}}<br />
+    <a href="/chapter/{{$val->id}}">{{$val->id}}</a> - {{$val->video}} - {{$val->content}} - {{$val->iframe_url}}<br />
 @endforeach
 </body>
 </html>
