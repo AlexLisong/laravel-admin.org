@@ -715,7 +715,12 @@ $(function () {
 
                         $.ajax({
                             url: '{{ $url['upload'] }}',
-                            data: result,
+                            data: {
+                                videoUrl : result.videoUrl,
+                                coverUrl : result.coverUrl,
+                                videoName : result.videoName,
+                                "_token": "{{ csrf_token() }}",
+                            },
                             type: 'POST',
                             dataType: 'json',
                             success: function(res){

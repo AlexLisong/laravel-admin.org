@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Admin\Controllers\Cc;
-use Encore\Admin\Reporter\Reporter;
 use Illuminate\Support\Facades\Log;
 
 use Encore\Admin\Facades\Admin;
@@ -47,11 +46,11 @@ class MediaController extends Controller
     public function upload(Request $request)
     {
 //        Log::info('upload:'. $request->get('videoUrl'));
-        Log::info( $request->input('videoName'));
-        Log::info( $request->input('videoUrl'));
-        Log::info( $request->input('coverUrl'));
+        Log::info( $request->get('videoName', ''));
+        Log::info( $request->get('videoUrl', ''));
+        Log::info( $request->get('coverUrl', ''));
         return response()->json([
-            'status' => true,
+            'status' => 200,
             'message' => '',
         ]);
 //        result.videoUrl
@@ -73,66 +72,8 @@ class MediaController extends Controller
 
     public function delete(Request $request)
     {
-        $files = $request->get('files');
 
-        $manager = new MediaManager();
-
-        try {
-            if ($manager->delete($files)) {
-                return response()->json([
-                    'status' => true,
-                    'message' => trans('admin.delete_succeeded')
-                ]);
-            }
-        } catch (\Exception $e) {
-            return response()->json([
-                'status' => true,
-                'message' => $e->getMessage(),
-            ]);
-        }
     }
 
-    public function move(Request $request)
-    {
-        $path = $request->get('path');
-        $new  = $request->get('new');
 
-        $manager = new MediaManager($path);
-
-        try {
-            if ($manager->move($new)) {
-                return response()->json([
-                    'status' => true,
-                    'message' => trans('admin.move_succeeded')
-                ]);
-            }
-        } catch (\Exception $e) {
-            return response()->json([
-                'status' => true,
-                'message' => $e->getMessage(),
-            ]);
-        }
-    }
-
-    public function newFolder(Request $request)
-    {
-        $dir = $request->get('dir');
-        $name  = $request->get('name');
-
-        $manager = new MediaManager($dir);
-
-        try {
-            if ($manager->newFolder($name)) {
-                return response()->json([
-                    'status' => true,
-                    'message' => trans('admin.move_succeeded')
-                ]);
-            }
-        } catch (\Exception $e) {
-            return response()->json([
-                'status' => true,
-                'message' => $e->getMessage(),
-            ]);
-        }
-    }
 }
