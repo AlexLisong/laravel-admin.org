@@ -708,9 +708,26 @@ $(function () {
                         if(result.coverUrl) {
                             $('[name=coverurl'+num+']').text(result.coverUrl);
                         }
+
                         if(result.message) {
                             $('[name=videofileId'+num+']').text(result.message);
                         }
+
+                        $.ajax({
+                            url: '{{ $url['upload'] }}',
+                            data: result,
+                            type: 'POST',
+                            dataType: 'json',
+                            success: function(res){
+                                if(res) {
+                                    return res;
+                                } else {
+                                    return '提交失败了';
+                                }
+
+                            }
+                        });
+
                     }
                 });
                 if(resultMsg){

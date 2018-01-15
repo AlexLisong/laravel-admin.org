@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Admin\Controllers\Cc;
+use Encore\Admin\Reporter\Reporter;
+use Illuminate\Support\Facades\Log;
 
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
@@ -12,6 +14,7 @@ class MediaController extends Controller
     public function index(Request $request)
     {
         return Admin::content(function (Content $content) use ($request) {
+            Log::info('111 index');
 
             $content->header('Video manager');
             $urls = [
@@ -43,20 +46,21 @@ class MediaController extends Controller
 
     public function upload(Request $request)
     {
-        $files = $request->file('files');
-        $dir = $request->get('dir', '/');
 
-        $manager = new MediaManager($dir);
-
-        try {
-            if ($manager->upload($files)) {
-                admin_toastr(trans('admin.upload_succeeded'));
-            }
-        } catch (\Exception $e) {
-            admin_toastr($e->getMessage(), 'error');
-        }
-
-        return back();
+//        $files = $request->file('files');
+//        $dir = $request->get('dir', '/');
+//
+//        $manager = new MediaManager($dir);
+//
+//        try {
+//            if ($manager->upload($files)) {
+//                admin_toastr(trans('admin.upload_succeeded'));
+//            }
+//        } catch (\Exception $e) {
+//            admin_toastr($e->getMessage(), 'error');
+//        }
+//
+//        return back();
     }
 
     public function delete(Request $request)
