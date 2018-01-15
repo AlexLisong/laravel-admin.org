@@ -72,10 +72,10 @@ Route::group([
 
     $router->get('vmanager', 'cc\MediaController@index')->name('media-index');
     $router->get('vmanager/download', 'cc\MediaController@download')->name('media-download');
-    $router->delete('vmanager/delete', 'Encore\Admin\Media\MediaController@delete')->name('media-delete');
-    $router->put('vmanager/move', 'Encore\Admin\Media\MediaController@move')->name('media-move');
-    $router->post('vmanager/upload', 'Encore\Admin\Media\MediaController@upload')->name('media-upload');
-    $router->post('vmanager/folder', 'Encore\Admin\Media\MediaController@newFolder')->name('media-new-folder');
+    $router->delete('vmanager/delete', 'cc\MediaController@delete')->name('media-delete');
+    $router->put('vmanager/move', 'cc\MediaController@move')->name('media-move');
+    $router->post('vmanager/upload', 'cc\MediaController@upload')->name('media-upload');
+    $router->post('vmanager/folder', 'cc\MediaController@newFolder')->name('media-new-folder');
 
 
     $router->get('widgets/form-1', 'WidgetsController@form1');

@@ -46,7 +46,15 @@ class MediaController extends Controller
 
     public function upload(Request $request)
     {
-
+//        Log::info('upload:'. $request->get('videoUrl'));
+        Log::info( $request->input('videoName'));
+        Log::info( $request->input('videoUrl'));
+        Log::info( $request->input('coverUrl'));
+        return response()->json([
+            'status' => true,
+            'message' => '',
+        ]);
+//        result.videoUrl
 //        $files = $request->file('files');
 //        $dir = $request->get('dir', '/');
 //
