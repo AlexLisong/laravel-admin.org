@@ -60,6 +60,7 @@ class MediaController extends Controller
         $video->cover_url = $request->get('coverUrl', '');
 
         $video->save();
+        //return redirect('/cc-admin/vmanager');
 
         return response()->json([
             'status' => 200,

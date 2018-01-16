@@ -721,6 +721,7 @@ $(function () {
                             dataType: 'json',
                             success: function(res){
                                 if(res) {
+                                    window.location.reload(false);
                                     return res;
                                 } else {
                                     return '提交失败了';
