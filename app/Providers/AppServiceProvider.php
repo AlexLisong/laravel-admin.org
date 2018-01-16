@@ -6,6 +6,7 @@ use Encore\Admin\Auth\Database\Administrator;
 use Encore\Admin\Auth\Database\Menu;
 use Encore\Admin\Auth\Database\Permission;
 use Encore\Admin\Auth\Database\Role;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -17,6 +18,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        Schema::defaultStringLength(191);
         $callback = function () {
             return false;
         };
