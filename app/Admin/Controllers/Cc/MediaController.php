@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers\Cc;
 use Illuminate\Support\Facades\Log;
-
+use App\Models\Cc\Video;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use Illuminate\Http\Request;
@@ -12,6 +12,9 @@ class MediaController extends Controller
 {
     public function index(Request $request)
     {
+        // Validate the request...
+
+
         return Admin::content(function (Content $content) use ($request) {
             Log::info('111 index');
 
@@ -26,7 +29,7 @@ class MediaController extends Controller
             ];
 
             $content->body(view('cc/table', [
-                'list'   => [],
+                'list'   => Video::all(),
                 'nav'    => [],
                 'url'    => $urls,
             ]));
@@ -49,10 +52,20 @@ class MediaController extends Controller
         Log::info( $request->get('videoName', ''));
         Log::info( $request->get('videoUrl', ''));
         Log::info( $request->get('coverUrl', ''));
+
+        $video = new Video;
+        $video->title = $request->get('videoName', '');
+        $video->url = $request->get('videoUrl', '');
+        $video->status = "0";
+        $video->cover_url = $request->get('coverUrl', '');
+
+        $video->save();
+
         return response()->json([
             'status' => 200,
             'message' => '',
         ]);
+
 //        result.videoUrl
 //        $files = $request->file('files');
 //        $dir = $request->get('dir', '/');

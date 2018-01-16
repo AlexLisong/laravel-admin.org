@@ -259,51 +259,51 @@ $(function () {
     <div class="col-md-12">
         <div class="box box-primary">
 
-            <div class="box-body no-padding">
+            {{--<div class="box-body no-padding">--}}
 
-                <div class="mailbox-controls with-border">
-                    <div class="btn-group">
-                        <a href="" type="button" class="btn btn-default btn media-reload" title="Refresh">
-                            <i class="fa fa-refresh"></i>
-                        </a>
-                        <a type="button" class="btn btn-default btn file-delete-multiple" title="Delete">
-                            <i class="fa fa-trash-o"></i>
-                        </a>
-                    </div>
-                    <!-- /.btn-group -->
-                    <label class="btn btn-default btn"{{-- data-toggle="modal" data-target="#uploadModal"--}}>
-                        <i class="fa fa-upload"></i>&nbsp;&nbsp;{{ trans('admin.upload') }}
-                        <form action="{{ $url['upload'] }}" method="post" class="file-upload-form" enctype="multipart/form-data" pjax-container>
-                            <input type="file" name="files[]" class="hidden file-upload" multiple>
-                            <input type="hidden" name="dir" value="{{ $url['path'] }}" />
-                            {{ csrf_field() }}
-                        </form>
-                    </label>
+                {{--<div class="mailbox-controls with-border">--}}
+                    {{--<div class="btn-group">--}}
+                        {{--<a href="" type="button" class="btn btn-default btn media-reload" title="Refresh">--}}
+                            {{--<i class="fa fa-refresh"></i>--}}
+                        {{--</a>--}}
+                        {{--<a type="button" class="btn btn-default btn file-delete-multiple" title="Delete">--}}
+                            {{--<i class="fa fa-trash-o"></i>--}}
+                        {{--</a>--}}
+                    {{--</div>--}}
+                    {{--<!-- /.btn-group -->--}}
+                    {{--<label class="btn btn-default btn"--}}{{-- data-toggle="modal" data-target="#uploadModal"--}}{{-->--}}
+                        {{--<i class="fa fa-upload"></i>&nbsp;&nbsp;{{ trans('admin.upload') }}--}}
+                        {{--<form action="{{ $url['upload'] }}" method="post" class="file-upload-form" enctype="multipart/form-data" pjax-container>--}}
+                            {{--<input type="file" name="files[]" class="hidden file-upload" multiple>--}}
+                            {{--<input type="hidden" name="dir" value="{{ $url['path'] }}" />--}}
+                            {{--{{ csrf_field() }}--}}
+                        {{--</form>--}}
+                    {{--</label>--}}
 
-                    <!-- /.btn-group -->
-                    <a class="btn btn-default btn" data-toggle="modal" data-target="#newFolderModal">
-                        <i class="fa fa-folder"></i>&nbsp;&nbsp;{{ trans('admin.new_folder') }}
-                    </a>
+                    {{--<!-- /.btn-group -->--}}
+                    {{--<a class="btn btn-default btn" data-toggle="modal" data-target="#newFolderModal">--}}
+                        {{--<i class="fa fa-folder"></i>&nbsp;&nbsp;{{ trans('admin.new_folder') }}--}}
+                    {{--</a>--}}
 
-                    <div class="btn-group">
-                        <a href="{{ route('media-index', ['path' => $url['path'], 'view' => 'table']) }}" class="btn btn-default active"><i class="fa fa-list"></i></a>
-                        <a href="{{ route('media-index', ['path' => $url['path'], 'view' => 'list']) }}" class="btn btn-default"><i class="fa fa-th"></i></a>
-                    </div>
+                    {{--<div class="btn-group">--}}
+                        {{--<a href="{{ route('media-index', ['path' => $url['path'], 'view' => 'table']) }}" class="btn btn-default active"><i class="fa fa-list"></i></a>--}}
+                        {{--<a href="{{ route('media-index', ['path' => $url['path'], 'view' => 'list']) }}" class="btn btn-default"><i class="fa fa-th"></i></a>--}}
+                    {{--</div>--}}
 
                     {{--<form action="{{ $url['index'] }}" method="get" pjax-container>--}}
-                    <div class="input-group input-group-sm pull-right goto-url" style="width: 250px;">
-                        <input type="text" name="path" class="form-control pull-right" value="{{ '/'.trim($url['path'], '/') }}">
+                    {{--<div class="input-group input-group-sm pull-right goto-url" style="width: 250px;">--}}
+                        {{--<input type="text" name="path" class="form-control pull-right" value="{{ '/'.trim($url['path'], '/') }}">--}}
 
-                        <div class="input-group-btn">
-                            <button type="submit" class="btn btn-default"><i class="fa fa-arrow-right"></i></button>
-                        </div>
-                    </div>
+                        {{--<div class="input-group-btn">--}}
+                            {{--<button type="submit" class="btn btn-default"><i class="fa fa-arrow-right"></i></button>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
                     {{--</form>--}}
 
-                </div>
+                {{--</div>--}}
 
-                <!-- /.mailbox-read-message -->
-            </div>
+                {{--<!-- /.mailbox-read-message -->--}}
+            {{--</div>--}}
             <!-- /.box-body -->
             <div class="box-footer">
                 <ol class="breadcrumb" style="margin-bottom: 10px;">
@@ -325,38 +325,33 @@ $(function () {
                             </span>
                         </th>
                         <th>{{ trans('admin.name') }}</th>
-                        <th></th>
-                        <th width="200px;">{{ trans('admin.time') }}</th>
-                        <th width="100px;">{{ trans('admin.size') }}</th>
+                        <th width="200px;">Url</th>
+                        <th width="100px;">封面Url</th>
                     </tr>
                     @foreach($list as $item)
                     <tr>
                         <td style="padding-top: 15px;">
-                            <span class="file-select">
-                            <input type="checkbox" value="{{ $item['name'] }}"/>
-                            </span>
+                            {{--<span class="file-select">--}}
+                            {{--<input type="checkbox" value="{{ $item['title'] }}"/>--}}
+                            {{--</span>--}}
                         </td>
                         <td>
-                            {!! $item['preview'] !!}
-
-                            <a href="{{ $item['link'] }}" class="file-name" title="{{ $item['name'] }}">
-                            {{ $item['icon'] }} {{ basename($item['name']) }}
-                            </a>
+                             {{ basename($item['title']) }}
                         </td>
 
-                        <td class="action-row">
-                            <div class="btn-group btn-group-xs hide">
-                                <a class="btn btn-default file-rename" data-toggle="modal" data-target="#moveModal" data-name="{{ $item['name'] }}"><i class="fa fa-edit"></i></a>
-                                <a class="btn btn-default file-delete" data-path="{{ $item['name'] }}"><i class="fa fa-trash"></i></a>
-                                @unless($item['isDir'])
-                                <a href="{{ $item['download'] }}" class="btn btn-default"><i class="fa fa-download"></i></a>
-                                @endunless
-                                <a class="btn btn-default" data-toggle="modal" data-target="#urlModal" data-url="{{ $item['url'] }}"><i class="fa fa-internet-explorer"></i></a>
-                            </div>
+                        {{--<td class="action-row">--}}
+                            {{--<div class="btn-group btn-group-xs hide">--}}
+                                {{--<a class="btn btn-default file-rename" data-toggle="modal" data-target="#moveModal" data-name="{{ $item['name'] }}"><i class="fa fa-edit"></i></a>--}}
+                                {{--<a class="btn btn-default file-delete" data-path="{{ $item['name'] }}"><i class="fa fa-trash"></i></a>--}}
+                                {{--@unless($item['isDir'])--}}
+                                {{--<a href="{{ $item['download'] }}" class="btn btn-default"><i class="fa fa-download"></i></a>--}}
+                                {{--@endunless--}}
+                                {{--<a class="btn btn-default" data-toggle="modal" data-target="#urlModal" data-url="{{ $item['url'] }}"><i class="fa fa-internet-explorer"></i></a>--}}
+                            {{--</div>--}}
 
-                        </td>
-                        <td>{{ $item['time'] }}&nbsp;</td>
-                        <td>{{ $item['size'] }}&nbsp;</td>
+                        {{--</td>--}}
+                        <td>{{ $item['url'] }}&nbsp;</td>
+                        <td>{{ $item['cover_url'] }}&nbsp;</td>
                     </tr>
                     @endforeach
                     </tbody>
@@ -442,44 +437,45 @@ $(function () {
 
 
     <div class="container bs-docs-container">
-        <div class="row" style="padding:10px;">
-            <p>
-                1.示例中的签名是直接从demo后台获取签名。<br>
-                2.示例1点击“直接上传视频”按钮即可上传视频。<br>
-                3.示例2点击“添加视频”添加视频文件，点击“添加封面”添加封面文件，然后点击“上传视频和封面”按钮即可上传视频和封面。<br>
-                4.取消上传为取消上传中的视频，上传成功的视频不能取消上传。
+        <h4>上传视频和封面</h4>
 
-            </p>
-        </div>
+        {{--<div class="row" style="padding:10px;">--}}
+            {{--<p>--}}
+                {{--1.示例中的签名是直接从demo后台获取签名。<br>--}}
+                {{--2.示例1点击“直接上传视频”按钮即可上传视频。<br>--}}
+                {{--3.示例2点击“添加视频”添加视频文件，点击“添加封面”添加封面文件，然后点击“上传视频和封面”按钮即可上传视频和封面。<br>--}}
+                {{--4.取消上传为取消上传中的视频，上传成功的视频不能取消上传。--}}
+
+            {{--</p>--}}
+        {{--</div>--}}
 
 
         <form id="form1">
             <input id="uploadVideoNow-file" type="file" style="display:none;">
         </form>
 
-        <div>
-            <img width="320" height="240" src="http://1254109501.vod2.myqcloud.com/73bb799bvodgzp1254109501/957394c84564972818747043130/4564972818747043131.jpg">
-            <video width="320" height="240" controls>
-                <source src="http://1254109501.vod2.myqcloud.com/73bb799bvodgzp1254109501/95875b524564972818747056361/CQJv9A95Y8sA.mp4" type="video/mp4">
+        {{--<div>--}}
+            {{--<img width="320" height="240" src="http://1254109501.vod2.myqcloud.com/73bb799bvodgzp1254109501/957394c84564972818747043130/4564972818747043131.jpg">--}}
+            {{--<video width="320" height="240" controls>--}}
+                {{--<source src="http://1254109501.vod2.myqcloud.com/73bb799bvodgzp1254109501/95875b524564972818747056361/CQJv9A95Y8sA.mp4" type="video/mp4">--}}
                 {{--<source src="http://1254109501.vod2.myqcloud.com/73bb799bvodgzp1254109501/95875b524564972818747056361/CQJv9A95Y8sA.ogg" type="video/ogg">--}}
-                Your browser does not support the video tag.
-            </video>
-            <video width="320" height="240" controls>
-                <source src="http://1254109501.vod2.myqcloud.com/73bb799bvodgzp1254109501/957394c84564972818747043130/m5sOic9z7kMA.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="row" style="padding:10px;">
-            <h4>示例1：直接上传视频</h4>
-            <a id="uploadVideoNow" href="javascript:void(0);" class="btn btn-outline">直接上传视频</a>
-        </div>
+                {{--Your browser does not support the video tag.--}}
+            {{--</video>--}}
+            {{--<video width="320" height="240" controls>--}}
+                {{--<source src="http://1254109501.vod2.myqcloud.com/73bb799bvodgzp1254109501/957394c84564972818747043130/m5sOic9z7kMA.mp4" type="video/mp4">--}}
+                {{--Your browser does not support the video tag.--}}
+            {{--</video>--}}
+        {{--</div>--}}
+        {{--<div class="row" style="padding:10px;">--}}
+            {{--<h4>示例1：直接上传视频</h4>--}}
+            {{--<a id="uploadVideoNow" href="javascript:void(0);" class="btn btn-outline">直接上传视频</a>--}}
+        {{--</div>--}}
 
         <form id="form2">
             <input id="addVideo-file" type="file" style="display:none;">
             <input id="addCover-file" type="file" style="display:none;">
         </form>
-        <div class="row" style="padding:10px;">
-            <h4>示例2：上传视频和封面</h4>
+        <div class="row" style="background-color: #0c5480; padding:10px;">
             <a id="addVideo" href="javascript:void(0);" class="btn btn-outline">添加视频</a>
             <a id="addCover" href="javascript:void(0);" class="btn btn-outline">添加封面</a>
             <a id="uploadFile" href="javascript:void(0);" class="btn btn-outline">上传视频和封面</a>
@@ -488,16 +484,16 @@ $(function () {
         <form id="form3">
             <input id="changeCover-file" type="file" style="display:none;">
         </form>
-        <div class="row form-group form-group-sm" style="padding:10px;">
-            <h4>示例3：修改封面</h4>
-            <label class="col-sm-1" style="padding: 0;">fileId：</label>
-            <div class="col-sm-4">
-                <input name="fileId" class="form-control">
-            </div>
-            <div class="col-sm-4">
-                <a id="changeCover" href="javascript:void(0);" class="btn btn-outline">修改封面</a>
-            </div>
-        </div>
+        {{--<div class="row form-group form-group-sm" style="padding:10px;">--}}
+            {{--<h4>示例3：修改封面</h4>--}}
+            {{--<label class="col-sm-1" style="padding: 0;">fileId：</label>--}}
+            {{--<div class="col-sm-4">--}}
+                {{--<input name="fileId" class="form-control">--}}
+            {{--</div>--}}
+            {{--<div class="col-sm-4">--}}
+                {{--<a id="changeCover" href="javascript:void(0);" class="btn btn-outline">修改封面</a>--}}
+            {{--</div>--}}
+        {{--</div>--}}
         <div class="row" id="resultBox"></div>
 
     </div>
