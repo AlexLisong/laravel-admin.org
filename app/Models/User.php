@@ -7,10 +7,13 @@ use App\Models\User\Profile;
 use App\Models\User\Sns;
 use Encore\Admin\Traits\AdminBuilder;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Passport\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Model
+class User extends Authenticatable
 {
-    use AdminBuilder;
+    use Notifiable,HasApiTokens, AdminBuilder;
 
     //use Faker;
 
@@ -29,6 +32,7 @@ class User extends Model
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
