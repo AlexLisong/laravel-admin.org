@@ -188,8 +188,24 @@ Route::get('fordata', function (Request $request) {
      *
      */
     $verifyflay = $openC->verfiytime();
+    $method=$request->get('method');
     if ($verifyflay) {
         //访问需要访问的控制器 返回需要得数据
+        switch ($method){
+            case 'test':
+                $result=$openC->test(['id'=>7985,'code'=>'getinfo']);
+                return response()->json($result);
+                break;
+            case 'another_metho':
+                break;
+            default:
+                break;
+
+
+        }
+
+
+
     } else {
         //返回代码错误的时候表示超时需要重新登录重新獲取token
         return response()->json(['status' => 401, 'msg' => 'time out']);

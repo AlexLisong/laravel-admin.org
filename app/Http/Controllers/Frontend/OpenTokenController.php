@@ -39,4 +39,8 @@ class OpenTokenController extends Controller
            return true;
         }
     }
+    public  function  test($data){
+
+            return ['code'=>200,'msg'=>'hello,world'];
+    }
 }
