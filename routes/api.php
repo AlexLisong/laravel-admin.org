@@ -3,6 +3,10 @@
 use Illuminate\Http\Request;
 use App\Http\Controllers\Frontend\OpenTokenController;
 use App\Models\User;
+use App\Wechat\JSSDK;
+use App\Wechat\WechatManager;
+use App\Models\Post;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -40,20 +44,22 @@ Route::get('gettoken', function (Request $request) {
         $appid = env('WX_APP_ID');
         $secret = env('WX_APP_SECRET');
 //第一步:取得openid
-        $oauth2Url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=$appid&secret=$secret&code=$code&grant_type=authorization_code";
+        //$oauth2Url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=$appid&secret=$secret&code=$code&grant_type=authorization_code";
+        $oauth2Url = "https://api.weixin.qq.com/sns/jscode2session?appid=$appid&secret=$secret&js_code=$code&grant_type=authorization_code";
         $oauth2 = $wechatManager->getJson($oauth2Url);
         //log::critical("ouath2".$oauth2);
 //第二步:根据全局access_token和openid查询用户信息
-        $access_token = $oauth2["access_token"];
+//        $access_token = $oauth2["access_token"];
         $openid = $oauth2['openid'];
+//        getjson output{"session_key":"UckUsDxuNRtGeYdk9krBrg==","openid":"od7wm0TQInEbkRjF1qOqLs29HbNg"}
         log::info("openid".$openid);
-        $get_user_info_url = "https://api.weixin.qq.com/sns/userinfo?access_token=$access_token&openid=$openid&lang=zh_CN";
-        $userinfo = $wechatManager->getJson($get_user_info_url);
-        //log::critical("uinfo".$userinfo);
-        $nickname = $userinfo["nickname"];
-        $unionid = $userinfo["openid"];
-        $openid = $userinfo["openid"];
-        log::info("$nickname".$nickname);
+//        $get_user_info_url = "https://api.weixin.qq.com/sns/userinfo?access_token=$access_token&openid=$openid&lang=zh_CN";
+//        $userinfo = $wechatManager->getJson($get_user_info_url);
+//        //log::critical("uinfo".$userinfo);
+//        $nickname = $userinfo["nickname"];
+//        $unionid = $userinfo["openid"];
+//        $openid = $userinfo["openid"];
+//        log::info("$nickname".$nickname);
     }catch (\Exception $e) {
         Log::error('get user exception::' . $e);
         Log::info('get user exception::end');
@@ -171,6 +177,7 @@ Route::get('gettoken', function (Request $request) {
     return response()->json([
         'token' => $token,
         'openid' => $openid,
+        'message'=>'',
         'status' => 0
     ]);
 });
@@ -193,3 +200,8 @@ Route::get('fordata', function (Request $request) {
 Route::get('parameters', function (Request $request) {
     return $request->all();
 });
+Route::get('post/{id}', function (Request $request,$id) {
+   $post = Post::find($id);
+   return $post;
+});
+

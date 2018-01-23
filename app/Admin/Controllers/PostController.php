@@ -90,65 +90,66 @@ class PostController extends Controller
 
             $grid->tags()->pluck('name')->label();
 
-            $states = [
-                'on' => ['text' => 'YES'],
-                'off' => ['text' => 'NO'],
-            ];
+//            $states = [
+//                'on' => ['text' => 'YES'],
+//                'off' => ['text' => 'NO'],
+//            ];
 
-            $grid->released()->switch($states);
+//            $grid->released()->switch($states);
 
-            $grid->rate()->display(function ($rate) {
-                $html = "<i class='fa fa-star' style='color:#ff8913'></i>";
-
-                return join('&nbsp;', array_fill(0, min(5, $rate), $html));
-            });
+//            $grid->rate()->display(function ($rate) {
+//                $html = "<i class='fa fa-star' style='color:#ff8913'></i>";
+//
+//                return join('&nbsp;', array_fill(0, min(5, $rate), $html));
+//            });
 
             $grid->created_at();
 
-            $grid->column('float_bar')->floatBar();
+//            $grid->column('float_bar')->floatBar();
 
-            $grid->rows(function (Grid\Row $row) {
-                if ($row->id % 2) {
-                    $row->setAttributes(['style' => 'color:red;']);
-                }
-            });
-
-            $grid->filter(function (Grid\Filter $filter) {
-
-                $filter->equal('title');
-
-                $filter->equal('created_at')->datetime();
-
-                $filter->between('updated_at')->datetime();
-
-                $filter->between('rate');
-
-                $filter->where(function ($query) {
-
-                    $input = $this->input;
-
-                    $query->whereHas('tags', function ($query) use ($input) {
-                        $query->where('name', $input);
-                    });
-
-                }, 'Has tag', 'tag');
-            });
-
-            $grid->tools(function ($tools) {
-
-                $tools->append(new Trashed());
-
-                $tools->batch(function (Grid\Tools\BatchActions $batch) {
-
-                    $batch->add('Restore', new RestorePost());
-                    $batch->add('Release', new ReleasePost(1));
-                    $batch->add('Unrelease', new ReleasePost(0));
-                    $batch->add('Show selected', new ShowSelected());
-                });
-
-            });
-
-            $grid->exporter(new ExcelExporter());
+//            $grid->rows(function (Grid\Row $row) {
+//                if ($row->id % 2) {
+//                    $row->setAttributes(['style' => 'color:red;']);
+//                }
+//            });
+//            $grid->picture()->image();
+//
+//            $grid->filter(function (Grid\Filter $filter) {
+//
+//                $filter->equal('title');
+//
+//                $filter->equal('created_at')->datetime();
+//
+//                $filter->between('updated_at')->datetime();
+//
+//                $filter->between('rate');
+//
+//                $filter->where(function ($query) {
+//
+//                    $input = $this->input;
+//
+//                    $query->whereHas('tags', function ($query) use ($input) {
+//                        $query->where('name', $input);
+//                    });
+//
+//                }, 'Has tag', 'tag');
+//            });
+//
+//            $grid->tools(function ($tools) {
+//
+//                $tools->append(new Trashed());
+//
+//                $tools->batch(function (Grid\Tools\BatchActions $batch) {
+//
+//                    $batch->add('Restore', new RestorePost());
+//                    $batch->add('Release', new ReleasePost(1));
+//                    $batch->add('Unrelease', new ReleasePost(0));
+//                    $batch->add('Show selected', new ShowSelected());
+//                });
+//
+//            });
+//
+//            $grid->exporter(new ExcelExporter());
         });
     }
 
@@ -200,6 +201,8 @@ class PostController extends Controller
 
             $form->text('title')->default('hello');
 
+            $form->select('author_id','User')->options(User::all()->pluck('name', 'id'));
+            /*
             $form->select('author_id')->options(function ($id) {
                 $user = User::find($id);
 
@@ -207,8 +210,10 @@ class PostController extends Controller
                     return [$user->id => $user->name];
                 }
             })->ajax('/demo/api/users');
-
+*/
             $form->editor('content');
+            $form->image('picture');
+            //$form->picture()->image();
 
             $form->number('rate');
             $form->switch('released');
