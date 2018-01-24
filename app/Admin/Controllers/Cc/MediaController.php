@@ -28,7 +28,7 @@ class MediaController extends Controller
                 'new-folder' => route('media-new-folder'),
             ];
 
-            $content->body(view('cc/table', [
+            $content->body(view('cc/vmanager-table', [
                 'list'   => Video::all(),
                 'nav'    => [],
                 'url'    => $urls,

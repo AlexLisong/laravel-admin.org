@@ -70,12 +70,12 @@ Route::group([
     $router->get('api/china/district', 'China\ChinaController@district');
 
 
-    $router->get('vmanager', 'cc\MediaController@index')->name('media-index');
-    $router->get('vmanager/download', 'cc\MediaController@download')->name('media-download');
-    $router->delete('vmanager/delete', 'cc\MediaController@delete')->name('media-delete');
-    $router->put('vmanager/move', 'cc\MediaController@move')->name('media-move');
-    $router->post('vmanager/upload', 'cc\MediaController@upload')->name('media-upload');
-    $router->post('vmanager/folder', 'cc\MediaController@newFolder')->name('media-new-folder');
+    $router->get('vmanager', 'Cc\MediaController@index')->name('vmanager-index');
+    $router->get('vmanager/download', 'Cc\MediaController@download')->name('vmanager-download');
+    $router->delete('vmanager/delete', 'Cc\MediaController@delete')->name('vmanager-delete');
+    $router->put('vmanager/move', 'Cc\MediaController@move')->name('vmanager-move');
+    $router->post('vmanager/upload', 'Cc\MediaController@upload')->name('vmanager-upload');
+    $router->post('vmanager/folder', 'Cc\MediaController@newFolder')->name('vmanager-new-folder');
 
 
     $router->get('widgets/form-1', 'WidgetsController@form1');

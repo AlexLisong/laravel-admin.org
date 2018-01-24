@@ -216,8 +216,37 @@ Route::get('fordata', function (Request $request) {
 Route::get('parameters', function (Request $request) {
     return $request->all();
 });
-Route::get('post/{id}', function (Request $request,$id) {
-   $post = Post::find($id);
-   return $post;
+Route::get('posts/{id?}', function (Request $request,$id=0) {
+
+    if($id > 0) {
+        $post = Post::find($id);
+        return $post;
+    }
+
+    if (!empty($request->input('tag'))) {
+        $tag_id = $request->input('tag');
+        $posts = Post::whereHas('tags', function ($q) use($tag_id) {
+            $q->where('id', $tag_id);
+        })->get();
+        return $posts;
+    }
+
+    return "null";
+
 });
 
+
+Route::get('files/{id?}', function (Request $request,$id=0) {
+    if($id > 0) {
+        $video = \App\Models\Video::find($id);
+        return $video;
+    }
+    if (!empty($request->input('tag'))) {
+        $tag_id = $request->input('tag');
+        $videos = \App\Models\Video::whereHas('tags', function ($q) use($tag_id) {
+            $q->where('id', $tag_id);
+        })->get();
+        return $videos;
+    }
+    return "null";
+});
