@@ -18,7 +18,7 @@ Route::group([
         'users' => UserController::class,
         'images' => ImageController::class,
         'posts' => PostController::class,
-        'videos' => VideoController::class,
+        'public-files' => PublicFileController::class,
         'articles' => ArticleController::class,
         'painters' => PainterController::class,
         'categories' => CategoryController::class,

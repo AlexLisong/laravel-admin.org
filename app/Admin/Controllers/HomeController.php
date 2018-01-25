@@ -48,13 +48,13 @@ class HomeController extends Controller
     public function getMaterialCreatorIndex($content){
         $content->row(function (Row $row) {
 
-            $row->column(6, function (Column $column) {
-                $column->append('<a href="/admin/cc/theme/create">创造新课程</a> ');
-            });
-
-            $row->column(6, function (Column $column) {
-                $column->append('<a href="/admin/cc/theme">修改现有课程</a>');
-            });
+//            $row->column(6, function (Column $column) {
+//                $column->append('<a href="/admin/cc/theme/create">创造新课程</a> ');
+//            });
+//
+//            $row->column(6, function (Column $column) {
+//                $column->append('<a href="/admin/cc/theme">修改现有课程</a>');
+//            });
         });
     }
 }

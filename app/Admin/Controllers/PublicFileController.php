@@ -3,7 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Tag;
-use App\Models\Video;
+use App\Models\PublicFile;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
@@ -11,7 +11,7 @@ use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
 
-class VideoController extends Controller
+class PublicFileController extends Controller
 {
     use ModelForm;
 
@@ -69,18 +69,18 @@ class VideoController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(Video::class, function (Grid $grid) {
+        return Admin::grid(PublicFile::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
 
             $grid->title()->limit(30);
 
-            $grid->status()->radio([
-                0 => 'Sed ut perspiciatis unde omni',
-                1 => 'voluptatem accusantium doloremque',
-                2 => 'dicta sunt explicabo',
-                3 => 'laudantium, totam rem aperiam',
-            ]);
+//            $grid->status()->radio([
+//                0 => 'Sed ut perspiciatis unde omni',
+//                1 => 'voluptatem accusantium doloremque',
+//                2 => 'dicta sunt explicabo',
+//                3 => 'laudantium, totam rem aperiam',
+//            ]);
 
             $grid->tags()->pluck('name')->label();
 
@@ -96,20 +96,20 @@ class VideoController extends Controller
      */
     protected function form()
     {
-        return Admin::form(Video::class, function (Form $form) {
+        return Admin::form(PublicFile::class, function (Form $form) {
 
             $form->display('id', 'ID');
 
             $form->text('title')->rules('required');
 
-            $form->radio('status')->options([
-                0 => 'Sed ut perspiciatis unde omni',
-                1 => 'voluptatem accusantium doloremque',
-                2 => 'dicta sunt explicabo',
-                3 => 'laudantium, totam rem aperiam',
-            ])->stacked();
+//            $form->radio('status')->options([
+//                0 => 'Sed ut perspiciatis unde omni',
+//                1 => 'voluptatem accusantium doloremque',
+//                2 => 'dicta sunt explicabo',
+//                3 => 'laudantium, totam rem aperiam',
+//            ])->stacked();
 
-            $form->file('video');
+            $form->file('file');
 
             $form->datetime('release_at');
 

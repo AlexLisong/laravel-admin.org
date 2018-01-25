@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Video extends Model
+class PublicFile extends Model
 {
-    protected $table = 'demo_videos';
+    protected $table = 'demo_files';
 
     public function tags()
     {

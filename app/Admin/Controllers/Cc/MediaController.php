@@ -24,7 +24,7 @@ class MediaController extends Controller
                 'index'      => route('media-index'),
                 'move'       => route('media-move'),
                 'delete'     => route('media-delete'),
-                'upload'     => route('media-upload'),
+                'upload'     => route('vmanager-upload'),
                 'new-folder' => route('media-new-folder'),
             ];
 
@@ -64,7 +64,7 @@ class MediaController extends Controller
 
         return response()->json([
             'status' => 200,
-            'message' => '',
+            'message' => 'uploaded',
         ]);
 
 //        result.videoUrl

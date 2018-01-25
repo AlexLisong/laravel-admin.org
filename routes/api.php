@@ -238,15 +238,15 @@ Route::get('posts/{id?}', function (Request $request,$id=0) {
 
 Route::get('files/{id?}', function (Request $request,$id=0) {
     if($id > 0) {
-        $video = \App\Models\Video::find($id);
-        return $video;
+        $file = \App\Models\PublicFile::find($id);
+        return $file;
     }
     if (!empty($request->input('tag'))) {
         $tag_id = $request->input('tag');
-        $videos = \App\Models\Video::whereHas('tags', function ($q) use($tag_id) {
+        $files = \App\Models\PublicFile::whereHas('tags', function ($q) use($tag_id) {
             $q->where('id', $tag_id);
         })->get();
-        return $videos;
+        return $files;
     }
     return "null";
 });
